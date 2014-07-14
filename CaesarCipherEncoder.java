@@ -101,6 +101,11 @@ public class CaesarCipherEncoder
 			if (values[i] != 0)
 			{
 			values[i] = values[i] + n;
+			
+			if (values[i] > 26)
+			{
+				values[i] = values[i] - 26;
+			}
 			}
 		}
 		return values;
