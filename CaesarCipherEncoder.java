@@ -16,7 +16,7 @@ public class CaesarCipherEncoder
 		
 		for (int i = 0; i < s.length(); i++)
 		{
-			letters [i] = s.charAt(i);
+			letters [i] = Character.toLowerCase(s.charAt(i));
 		}
 		
 		values = new int [s.length()];
@@ -29,6 +29,7 @@ public class CaesarCipherEncoder
 	
 	public int letterToValue(char ch)
 	{
+		
 		if (Character.toLowerCase(ch) == 'a') value = 1;
 		else if (Character.toLowerCase(ch) == 'b') value = 2;
 		else if (Character.toLowerCase(ch) == 'c') value = 3;
@@ -55,6 +56,7 @@ public class CaesarCipherEncoder
 		else if (Character.toLowerCase(ch) == 'x') value = 24;
 		else if (Character.toLowerCase(ch) == 'y') value = 25;
 		else if (Character.toLowerCase(ch) == 'z') value = 26;
+		else if (ch == ' ') value = 0;
 	
 			
 		return value;
@@ -63,40 +65,43 @@ public class CaesarCipherEncoder
 	public char valueToLetter(int val)
 	{
 		if (val == 1) letter = 'a';
-	else if (val == 2) letter = 'b';
-	else if (val == 3) letter = 'c';
-	else if (val == 4) letter = 'd';
-	else if (val == 5) letter = 'e';
-	else if (val == 6) letter = 'f';
-	else if (val == 7) letter = 'g';
-	else if (val == 8) letter = 'h';
-	else if (val == 9) letter = 'i';
-	else if (val == 10) letter = 'j';
-	else if (val == 11) letter = 'k';
-	else if (val == 12) letter = 'l';
-	else if (val == 13) letter = 'm';
-	else if (val == 14) letter = 'n';
-	else if (val == 15) letter = 'o';
-	else if (val == 16) letter = 'p';
-	else if (val == 17) letter = 'q';
-	else if (val == 18) letter = 'r';
-	else if (val == 19) letter = 's';
-	else if (val == 20) letter = 't';
-	else if (val == 21) letter = 'u';
-	else if (val == 22) letter = 'v';
-	else if (val == 23) letter = 'w';
-	else if (val == 24) letter = 'x';
-	else if (val == 25) letter = 'y';
-	else if (val == 26) letter = 'z';
-		return letter;
+		else if (val == 2) letter = 'b';
+		else if (val == 3) letter = 'c';
+		else if (val == 4) letter = 'd';
+		else if (val == 5) letter = 'e';
+		else if (val == 6) letter = 'f';
+		else if (val == 7) letter = 'g';
+		else if (val == 8) letter = 'h';
+		else if (val == 9) letter = 'i';
+		else if (val == 10) letter = 'j';
+		else if (val == 11) letter = 'k';
+		else if (val == 12) letter = 'l';
+		else if (val == 13) letter = 'm';
+		else if (val == 14) letter = 'n';
+		else if (val == 15) letter = 'o';
+		else if (val == 16) letter = 'p';
+		else if (val == 17) letter = 'q';
+		else if (val == 18) letter = 'r';
+		else if (val == 19) letter = 's';
+		else if (val == 20) letter = 't';
+		else if (val == 21) letter = 'u';
+		else if (val == 22) letter = 'v';
+		else if (val == 23) letter = 'w';
+		else if (val == 24) letter = 'x';
+		else if (val == 25) letter = 'y';
+		else if (val == 26) letter = 'z';
+		else if (val == 0) letter = ' ';
+			return letter;
 	}
 	
 	public int[] encode(int n)
 	{
 		for (int i = 0; i < values.length; i++)
 		{
+			if (values[i] != 0)
+			{
 			values[i] = values[i] + n;
-			
+			}
 		}
 		return values;
 	}
