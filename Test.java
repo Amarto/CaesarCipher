@@ -14,14 +14,8 @@ public class Test
 		
 		System.out.println("Please enter the value of the shift: ");
 		int n = in.nextInt();
-		cs.encode(n);
 		
 		System.out.println(cs.decode(cs.encode(n)));
-		
-		
-		
-		
-
 	}
 
 
